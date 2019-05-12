@@ -46,7 +46,7 @@ begin
 		id int identity not null primary key,
 		name nvarchar(50),
 		price float,
-		type bit,	--Loại mặt hàng
+		type nvarchar(255),	--Loại mặt hàng
 		status bit,	--Còn hàng/hết hàng
 		producer nvarchar(255)	--Nhà phân phối
 	)
@@ -61,10 +61,12 @@ begin
 	(
 		id int identity not null primary key,
 		productRefId int,
+		cartRefId int,
 		count int,
 		totalPrice float,
 
-		foreign key(productRefId) references Product(id)
+		foreign key(productRefId) references Product(id),
+		foreign key(cartRefId) references Cart(id)
 	)
 end
 go
@@ -77,11 +79,9 @@ begin
 	(
 		id int identity not null primary key,
 		personRefId int,
-		productInCartRefId int,
 		totalPrice float,
 
-		foreign key(personRefId) references Person(id),
-		foreign key(productInCartRefId) references ProductInCart(id)
+		foreign key(personRefId) references Person(id)
 	)
 end
 go
@@ -110,10 +110,12 @@ begin
 	(
 		id int identity not null primary key,
 		productRefId int,
+		orderedRefId int,
 		count int,
 		totalPrice float,
 
-		foreign key(productRefId) references Product(id)
+		foreign key(productRefId) references Product(id),
+		foreign key(orderedRefId) references Ordered(id)
 	)
 end
 go

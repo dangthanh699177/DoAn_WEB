@@ -13,9 +13,12 @@ namespace Shopping_Bonsai_Online.Model
         [Key]
         public int id { get; set; }
         public int productRefId { get; set; }
+        public int orderedRefId { get; set; }
         public int count { get; set; }
         public float totalPrice { get; set; }
         [ForeignKey("productRefId")]
         public virtual Product Product { get; set; }
+        [ForeignKey("orderedRefId")]
+        public virtual Ordered Ordered { get; set; }
     }
 }

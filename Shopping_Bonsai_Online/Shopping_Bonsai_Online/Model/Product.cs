@@ -15,7 +15,8 @@ namespace Shopping_Bonsai_Online.Model
         [StringLength(50)]
         public string name { get; set; }
         public float price { get; set; }
-        public byte type { get; set; }
+        [StringLength(255)]
+        public string type { get; set; }
         public byte status { get; set; }
         [StringLength(255)]
         public string producer { get; set; }

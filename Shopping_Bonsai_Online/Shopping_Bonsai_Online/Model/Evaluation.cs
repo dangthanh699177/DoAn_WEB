@@ -12,10 +12,10 @@ namespace Shopping_Bonsai_Online.Model
     {
         [Key]
         public int id { get; set; }
-        public int productRefId { get; set; }
+        public int personRefId { get; set; }
         public string title { get; set; }
         public string message { get; set; }
-        [ForeignKey("productRefId")]
-        public virtual Product Product { get; set; }
+        [ForeignKey("personRefId")]
+        public virtual Person Person { get; set; }
     }
 }

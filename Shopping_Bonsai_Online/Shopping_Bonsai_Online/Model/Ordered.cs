@@ -14,12 +14,9 @@ namespace Shopping_Bonsai_Online.Model
         public int id { get; set; }
         public int productRefId { get; set; }
         public DateTime dateOfBought { get; set; }
-        public int ProductInOrderedRefId { get; set; }
         public float totalPrice { get; set; }
         public byte status { get; set; }
         [ForeignKey("productRefId")]
         public virtual Product Product { get; set; }
-        [ForeignKey("ProductInOrderedRefId")]
-        public virtual ProductInOrdered ProductInOrdered { get; set; }
     }
 }
